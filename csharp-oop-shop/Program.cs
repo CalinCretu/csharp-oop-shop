@@ -21,7 +21,7 @@
     public class Prodotto
     {
         // Proprietà del prodotto
-        public int Codice { get; set; }
+        public int Codice { get; private set; } // Accessibile solo in lettura
         public string Nome { get; set; }
         public string Descrizione { get; set; }
         public decimal Prezzo { get; set; }
@@ -30,11 +30,18 @@
         // Costruttore per inizializzare le proprietà del prodotto
         public Prodotto(int codice, string nome, string descrizione, decimal prezzo, decimal iva)
         {
-            Codice = codice;
+            Codice = GeneraCodiceRandom();
             Nome = nome;
             Descrizione = descrizione;
             Prezzo = prezzo;
             Iva = iva;
+        }
+
+        // Metodo per generare un codice random
+        private int GeneraCodiceRandom()
+        {
+            Random random = new Random();
+            return random.Next(1000, 10000); // Genera un numero intero casuale compreso tra 1000 e 9999
         }
 
         // Metodo per calcolare il prezzo totale, compreso di IVA
