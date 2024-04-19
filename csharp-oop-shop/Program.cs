@@ -45,7 +45,7 @@
         private int GeneraCodiceRandom()
         {
             Random random = new Random();
-            return random.Next( 1, 100000 ); // Genera un numero intero casuale
+            return random.Next( 1, 10000000 ); // Genera un numero intero casuale
         }
 
         // Metodo per ottenere il prezzo base
@@ -63,7 +63,13 @@
         // Metodo per ottenere il nome esteso concatenando codice + nome
         public string NomeEsteso()
         {
-            return Codice + " " + Nome;
+            return CodiceConPadding() + " " + Nome;
+        }
+
+        // Metodo per restituire il codice con padding
+        public string CodiceConPadding()
+        {
+            return Codice.ToString().PadLeft(8, '0');
         }
     }
 }
