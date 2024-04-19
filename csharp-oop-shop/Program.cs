@@ -6,19 +6,40 @@
         static void Main(string[] args)
         {
 
-            Prodotto mouse = new Prodotto( "Occhiali da sole", "Occhiali con lenti scure", 49.90m, 22 );
+            Prodotto occhiali = new Prodotto( "Occhiali", "Occhiali da sole con lenti Blu", 49.90m, 22 );
 
             // Accesso alle proprietà del prodotto
-            Console.WriteLine("Codice: " + mouse.Codice);
-            Console.WriteLine("Nome: " + mouse.Nome);
-            Console.WriteLine("Descrizione: " + mouse.Descrizione);
-            Console.WriteLine("Prezzo: " + mouse.Prezzo);
-            Console.WriteLine("IVA: " + mouse.Iva);
+            Console.WriteLine("Codice: " + occhiali.Codice);
+            Console.WriteLine("Nome: " + occhiali.Nome);
+            Console.WriteLine("Descrizione: " + occhiali.Descrizione);
+            Console.WriteLine("Prezzo: " + occhiali.Prezzo);
+            Console.WriteLine("IVA: " + occhiali.Iva);
             // Test dei metodi
-            Console.WriteLine("Prezzo base: " + mouse.PrezzoBase());
-            Console.WriteLine("Prezzo con IVA: " + mouse.PrezzoConIva());
-            Console.WriteLine("Nome esteso: " + mouse.NomeEsteso());
+            Console.WriteLine("Prezzo base: " + occhiali.PrezzoBase());
+            Console.WriteLine("Prezzo con IVA: " + occhiali.PrezzoConIva());
+            Console.WriteLine("Nome esteso: " + occhiali.NomeEsteso());
 
+            // Creazione dell'array dei prodotti
+            Prodotto[] listaProdotti = new Prodotto[3]; // 3 prodotti che potremmo trovare nel negozio
+
+            // Inserimento dei prodotti nell'array
+            listaProdotti[0] = new Prodotto("Mouse", "Mouse ottico wireless", 29.99m, 22);
+            listaProdotti[1] = new Prodotto("Tastiera", "Tastiera meccanica RGB", 79.99m, 22);
+            listaProdotti[2] = new Prodotto("Cuffie", "Cuffie stereo con cancellazione del rumore", 149.99m, 22);
+
+            // Stampare l'elenco dei prodotti previsti nel negozio
+            Console.WriteLine("\nElenco dei prodotti previsti nel negozio:");
+            foreach (Prodotto prodotto in listaProdotti)
+            {
+                Console.WriteLine("\nNome: " + prodotto.Nome);
+                Console.WriteLine("Descrizione: " + prodotto.Descrizione);
+                Console.WriteLine("Prezzo: " + prodotto.Prezzo);
+                Console.WriteLine("IVA: " + prodotto.Iva);
+                // Test dei metodi
+                Console.WriteLine("Prezzo base: " + prodotto.PrezzoBase());
+                Console.WriteLine("Prezzo con IVA: " + prodotto.PrezzoConIva());
+                Console.WriteLine("Nome esteso: " + prodotto.NomeEsteso());
+            }
         } 
     }
 
