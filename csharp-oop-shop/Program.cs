@@ -6,7 +6,7 @@
         static void Main(string[] args)
         {
 
-            Prodotto occhiali = new Prodotto( "Occhiali", "Occhiali da sole con lenti Blu", 49.90m, 22 );
+            Prodotto occhiali = new Prodotto("Occhiali", "Occhiali da sole con lenti Blu", 49.90m, 22);
 
             // Accesso alle proprietà del prodotto
             Console.WriteLine("Codice: " + occhiali.Codice);
@@ -40,7 +40,7 @@
                 Console.WriteLine("Prezzo con IVA: " + prodotto.PrezzoConIva());
                 Console.WriteLine("Nome esteso: " + prodotto.NomeEsteso());
             }
-        } 
+        }
     }
 
     public class Prodotto
@@ -53,7 +53,7 @@
         public int Iva { get; set; }
 
         // Costruttore per inizializzare le proprietà del prodotto
-        public Prodotto( string nome, string descrizione, decimal prezzo, int iva )
+        public Prodotto(string nome, string descrizione, decimal prezzo, int iva)
         {
             Codice = GeneraCodiceRandom();
             Nome = nome;
@@ -66,7 +66,7 @@
         private int GeneraCodiceRandom()
         {
             Random random = new Random();
-            return random.Next( 1, 10000000 ); // Genera un numero intero casuale
+            return random.Next(1, 1000000); // Genera un numero intero casuale
         }
 
         // Metodo per ottenere il prezzo base
@@ -78,7 +78,12 @@
         // Metodo per calcolare il prezzo totale, compreso di IVA
         public decimal PrezzoConIva()
         {
-            return Prezzo + ( (Prezzo / 100) * Iva);
+            if (Prezzo != 0 && Iva != 0)
+            {
+                return Prezzo + ((Prezzo / 100) * Iva);
+            }
+            return Prezzo;
+
         }
 
         // Metodo per ottenere il nome esteso concatenando codice + nome
